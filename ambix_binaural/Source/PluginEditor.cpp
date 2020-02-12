@@ -44,7 +44,8 @@ Ambix_binauralAudioProcessorEditor::Ambix_binauralAudioProcessorEditor (Ambix_bi
 #endif
       _width(0)
 {
-    
+    LookAndFeel::setDefaultLookAndFeel(&MyLookAndFeel);
+
     tooltipWindow.setMillisecondsBeforeTipAppears (700); // tooltip delay
     
     addAndMakeVisible (label = new Label ("new label",

@@ -308,7 +308,7 @@ const String Ambix_converterAudioProcessor::getParameterName (int index)
 		default:								break;
 	}
 	
-	return String::empty;
+	return String();
 }
 
 const String Ambix_converterAudioProcessor::getParameterText (int index)
@@ -400,7 +400,7 @@ const String Ambix_converterAudioProcessor::getParameterText (int index)
 		default:								break;
 	}
 	
-	return String::empty;
+	return String();
 }
 
 const String Ambix_converterAudioProcessor::getInputChannelName (int channelIndex) const
@@ -467,7 +467,7 @@ void Ambix_converterAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_converterAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_converterAudioProcessor::changeProgramName (int index, const String& newName)
@@ -619,7 +619,7 @@ void Ambix_converterAudioProcessor::setStateInformation (const void* data, int s
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     
-    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     
     if (xmlState != nullptr)
     {

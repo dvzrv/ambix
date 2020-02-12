@@ -39,7 +39,7 @@
 */
 class Ambix_vmicAudioProcessorEditor  : public AudioProcessorEditor,
                                                         public ChangeListener
-                                                   // , public ButtonListener
+                                                   // , public Button::Listener
 {
 public:
     //==============================================================================
@@ -82,7 +82,9 @@ private:
     {
         return static_cast <Ambix_vmicAudioProcessor*> (getAudioProcessor());
     }
-    
+
+    LookAndFeel_V3 MyLookAndFeel;
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Ambix_vmicAudioProcessorEditor)
 };

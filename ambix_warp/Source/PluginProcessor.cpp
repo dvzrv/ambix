@@ -140,7 +140,7 @@ const String Ambix_warpAudioProcessor::getParameterName (int index)
 		default:								break;
 	}
 	
-	return String::empty;
+	return String();
 }
 
 const String Ambix_warpAudioProcessor::getParameterText (int index)
@@ -260,7 +260,7 @@ void Ambix_warpAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_warpAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_warpAudioProcessor::changeProgramName (int index, const String& newName)
@@ -618,7 +618,7 @@ void Ambix_warpAudioProcessor::setStateInformation (const void* data, int sizeIn
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     
-    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     
     if (xmlState != nullptr)
     {

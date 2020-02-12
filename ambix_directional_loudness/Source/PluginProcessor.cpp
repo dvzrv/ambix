@@ -183,7 +183,7 @@ const String Ambix_directional_loudnessAudioProcessor::getParameterName (int ind
     int filter_id = (int)floor(index/PARAMS_PER_FILTER);
     
     if (filter_id >= NUM_FILTERS) // safety..
-        return String::empty;
+        return String();
     
     switch (index%PARAMS_PER_FILTER) {
             
@@ -235,7 +235,7 @@ const String Ambix_directional_loudnessAudioProcessor::getParameterText (int ind
     int filter_id = (int)floor(index/PARAMS_PER_FILTER);
     
     if (filter_id >= NUM_FILTERS) // safety..
-        return String::empty;
+        return String();
     
     switch (index%PARAMS_PER_FILTER) {
            
@@ -354,7 +354,7 @@ void Ambix_directional_loudnessAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_directional_loudnessAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_directional_loudnessAudioProcessor::changeProgramName (int index, const String& newName)
@@ -626,7 +626,7 @@ void Ambix_directional_loudnessAudioProcessor::setStateInformation (const void* 
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     
-    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     
     if (xmlState != nullptr)
     {

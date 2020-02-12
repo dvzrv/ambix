@@ -160,7 +160,7 @@ const String Ambix_rotator_zAudioProcessor::getParameterName (int index)
 		default:								break;
 	}
 	
-	return String::empty;
+	return String();
 }
 
 const String Ambix_rotator_zAudioProcessor::getParameterText (int index)
@@ -250,7 +250,7 @@ void Ambix_rotator_zAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_rotator_zAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_rotator_zAudioProcessor::changeProgramName (int index, const String& newName)
@@ -411,7 +411,7 @@ void Ambix_rotator_zAudioProcessor::setStateInformation (const void* data, int s
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     
-    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     
     if (xmlState != nullptr)
     {

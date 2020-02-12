@@ -36,10 +36,10 @@
                                                                     //[/Comments]
 */
 class Ambix_rotatorAudioProcessorEditor  : public AudioProcessorEditor,
-                                           public SliderListener,
-                                           public ButtonListener,
+                                           public Slider::Listener,
+                                           public Button::Listener,
                                            public ChangeListener,
-                                           public TextEditorListener,
+                                           public TextEditor::Listener,
                                            public Timer
 {
 public:
@@ -89,7 +89,9 @@ private:
     ScopedPointer<ToggleButton> tgl_qinvert;
 
     bool _changed;
-    
+
+    LookAndFeel_V3 MyLookAndFeel;
+
     Ambix_rotatorAudioProcessor* getProcessor() const
     {
         return static_cast <Ambix_rotatorAudioProcessor*> (getAudioProcessor());

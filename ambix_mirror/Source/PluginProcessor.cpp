@@ -170,7 +170,7 @@ const String Ambix_mirrorAudioProcessor::getParameterName (int index)
 		default:								break;
 	}
 	
-	return String::empty;
+	return String();
 }
 
 const String Ambix_mirrorAudioProcessor::getParameterText (int index)
@@ -403,7 +403,7 @@ void Ambix_mirrorAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_mirrorAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_mirrorAudioProcessor::changeProgramName (int index, const String& newName)
@@ -591,7 +591,7 @@ void Ambix_mirrorAudioProcessor::setStateInformation (const void* data, int size
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     
-    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     
     if (xmlState != nullptr)
     {

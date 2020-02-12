@@ -107,7 +107,7 @@ const String Ambix_maxreAudioProcessor::getParameterName (int index)
             return "order";
             
 		default:
-            return String::empty;
+            return String();
 	}
 }
 
@@ -129,7 +129,7 @@ const String Ambix_maxreAudioProcessor::getParameterText (int index)
             return String(order);
             
 		default:
-            return String::empty;
+            return String();
 	}
     
 }
@@ -198,7 +198,7 @@ void Ambix_maxreAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_maxreAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_maxreAudioProcessor::changeProgramName (int index, const String& newName)

@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
 
-cmake_policy(SET CMP0026 OLD) # supress warnings regarding JUCE STATIC LOCATION
-
 ################################################
 #set name
 PROJECT(ambix_plugin_suite)
@@ -20,6 +18,8 @@ SET(NUM_OUTPUTS_DECODER 48 CACHE STRING "output channels for decoder")
 SET(NUM_FILTERS 8 CACHE STRING "number of directional filters that can be controlled for directional_loudness")
 SET(NUM_FILTERS_VMIC 8 CACHE STRING "number of directional filters (==outputs) for vmic")
 SET(BUILD_STANDALONE TRUE CACHE BOOL "build standalone application (for those with editor)")
+
+SET(VSTSDK_PATH "~/SDKs/VST3" CACHE PATH "Path to VST SDK")
 
 SET(BUILD_VST TRUE CACHE BOOL "build VST plugins")
 IF (APPLE)
@@ -207,7 +207,7 @@ IF(UNIX AND NOT APPLE AND NOT ANDROID)
 	find_package(FFTW3 COMPONENTS single threads)
 ENDIF(UNIX AND NOT APPLE AND NOT ANDROID)
 
-include_directories(${EIGEN3_INCLUDE_DIR} ${FFTW3_INCLUDE_DIR} ${LIBSOXR_INCLUDE_DIRS})
+include_directories(${EIGEN3_INCLUDE_DIR} ${FFTW3_INCLUDE_DIR} ${LIBSOXR_INCLUDE_DIRS} ${VSTSDK_PATH})
 
 
 ################################################

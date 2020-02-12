@@ -171,7 +171,7 @@ const String Ambix_vmicAudioProcessor::getParameterName (int index)
     int filter_id = (int)floor(index/PARAMS_PER_FILTER);
     
     if (filter_id >= NUM_FILTERS_VMIC) // safety..
-        return String::empty;
+        return String();
     
     switch (index%PARAMS_PER_FILTER) {
             
@@ -223,7 +223,7 @@ const String Ambix_vmicAudioProcessor::getParameterText (int index)
     int filter_id = (int)floor(index/PARAMS_PER_FILTER);
     
     if (filter_id >= NUM_FILTERS_VMIC) // safety..
-        return String::empty;
+        return String();
     
     switch (index%PARAMS_PER_FILTER) {
            
@@ -342,7 +342,7 @@ void Ambix_vmicAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_vmicAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_vmicAudioProcessor::changeProgramName (int index, const String& newName)
@@ -600,7 +600,7 @@ void Ambix_vmicAudioProcessor::setStateInformation (const void* data, int sizeIn
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     
-    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     
     if (xmlState != nullptr)
     {

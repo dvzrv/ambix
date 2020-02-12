@@ -29,9 +29,9 @@
 //==============================================================================
 
 class Ambix_mirrorAudioProcessorEditor  : public AudioProcessorEditor,
-                                          public ComboBoxListener,
-                                          public SliderListener,
-                                          public ButtonListener,
+                                          public ComboBox::Listener,
+                                          public Slider::Listener,
+                                          public Button::Listener,
                                           public ChangeListener
 {
 public:
@@ -100,6 +100,7 @@ private:
     ScopedPointer<Label> lbl_circular;
     Image cachedImage_coordinate_system_png;
 
+    LookAndFeel_V3 MyLookAndFeel;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Ambix_mirrorAudioProcessorEditor)

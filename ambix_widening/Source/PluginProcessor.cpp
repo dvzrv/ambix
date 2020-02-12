@@ -111,7 +111,7 @@ const String Ambix_wideningAudioProcessor::getParameterName (int index)
 		case ModTParam:         return "Mod T";
         case RotOffsetParam:    return "Rotation Offset";
 		case SingleSideParam:   return "Single Sided";
-		default:                return String::empty;
+		default:                return String();
 	}
     
 }
@@ -239,7 +239,7 @@ void Ambix_wideningAudioProcessor::setCurrentProgram (int index)
 
 const String Ambix_wideningAudioProcessor::getProgramName (int index)
 {
-    return String::empty;
+    return String();
 }
 
 void Ambix_wideningAudioProcessor::changeProgramName (int index, const String& newName)
@@ -379,7 +379,7 @@ void Ambix_wideningAudioProcessor::processBlock (AudioSampleBuffer& buffer, Midi
     }
     
     
-    // String debug = String::empty;
+    // String debug = String();
     
     /////////////////////////
     // compute read positions (tap delay times)
@@ -680,7 +680,7 @@ void Ambix_wideningAudioProcessor::setStateInformation (const void* data, int si
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     
-    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     
     if (xmlState != nullptr)
     {

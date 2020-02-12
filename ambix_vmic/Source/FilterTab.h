@@ -24,8 +24,8 @@
 #include "PluginProcessor.h"
 
 class FilterTab :   public Component,
-                    public SliderListener,
-                    public ComboBoxListener
+                    public Slider::Listener,
+                    public ComboBox::Listener
 {
     
 public:

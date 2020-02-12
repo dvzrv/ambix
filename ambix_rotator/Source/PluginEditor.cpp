@@ -58,8 +58,7 @@ Ambix_rotatorAudioProcessorEditor::Ambix_rotatorAudioProcessorEditor (Ambix_rota
     : AudioProcessorEditor (ownerFilter),
     _changed(true)
 {
-    //[Constructor_pre] You can add your own custom stuff here..
-    //[/Constructor_pre]
+    LookAndFeel::setDefaultLookAndFeel(&MyLookAndFeel);
 
     addAndMakeVisible (sld_yaw = new Slider ("new slider"));
     sld_yaw->setTooltip (TRANS("yaw (left-right)"));

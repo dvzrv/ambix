@@ -86,7 +86,7 @@ private:
 
 class PanningGraph    :  public Component,
 public SettableTooltipClient,
-public ButtonListener,
+public Button::Listener,
 public ChangeBroadcaster
 {
     friend class GraphComponent;

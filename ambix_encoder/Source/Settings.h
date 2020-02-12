@@ -36,9 +36,9 @@
                                                                     //[/Comments]
 */
 class Settings  : public Component,
-                  public ButtonListener,
-                  public SliderListener,
-                  public TextEditorListener
+                  public Button::Listener,
+                  public Slider::Listener,
+                  public TextEditor::Listener
 {
 public:
     //==============================================================================

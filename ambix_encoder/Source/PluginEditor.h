@@ -38,11 +38,11 @@
                                                                     //[/Comments]
 */
 class Ambix_encoderAudioProcessorEditor  : public AudioProcessorEditor,
-                                           public SliderListener,
+                                           public Slider::Listener,
                                            public ChangeListener,
-                                           public ButtonListener,
+                                           public Button::Listener,
                                            public Timer,
-                                           public TextEditorListener
+                                           public TextEditor::Listener
 {
 public:
     //==============================================================================
@@ -108,7 +108,9 @@ private:
     }
     
     TooltipWindow tooltipWindow;
-    
+
+    LookAndFeel_V3 MyLookAndFeel;
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Ambix_encoderAudioProcessorEditor)
 };

@@ -69,6 +69,8 @@ Ambix_encoderAudioProcessorEditor::Ambix_encoderAudioProcessorEditor (Ambix_enco
 	sphere_opengl(nullptr),
     changed_(true)
 {
+    LookAndFeel::setDefaultLookAndFeel(&MyLookAndFeel);
+
     tooltipWindow.setMillisecondsBeforeTipAppears (700); // tooltip delay
     
     addAndMakeVisible (sld_el = new Slider ("new slider"));
@@ -105,7 +107,7 @@ Ambix_encoderAudioProcessorEditor::Ambix_encoderAudioProcessorEditor (Ambix_enco
     sld_size->setColour (Slider::textBoxBackgroundColourId, Colours::white);
     sld_size->setColour (Slider::textBoxHighlightColourId, Colours::white);
     sld_size->addListener (this);
-    sld_size->setPopupDisplayEnabled(true, this);
+    sld_size->setPopupDisplayEnabled(true, true, this);
     
     addAndMakeVisible (sld_speed = new Slider ("new slider"));
     sld_speed->setTooltip ("movement speed in deg/sec");
@@ -205,7 +207,7 @@ Ambix_encoderAudioProcessorEditor::Ambix_encoderAudioProcessorEditor (Ambix_enco
     sld_width->setColour (Slider::textBoxTextColourId, Colours::black);
     sld_width->setColour (Slider::textBoxBackgroundColourId, Colours::white);
     sld_width->addListener (this);
-    sld_width->setPopupDisplayEnabled(true, this);
+    sld_width->setPopupDisplayEnabled(true, true, this);
     sld_width->setDoubleClickReturnValue(true, 45);
 #endif
     

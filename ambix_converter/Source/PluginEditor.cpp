@@ -40,6 +40,8 @@ Ambix_converterAudioProcessorEditor::Ambix_converterAudioProcessorEditor (Ambix_
       tgl_flap (nullptr),
       label6 (nullptr)
 {
+    LookAndFeel::setDefaultLookAndFeel(&MyLookAndFeel);
+
     tooltipWindow.setMillisecondsBeforeTipAppears (700); // tooltip delay
     
     addAndMakeVisible (hyperlinkButton = new HyperlinkButton ("(C) 2013 Matthias Kronlachner",

@@ -36,8 +36,8 @@
                                                                     //[/Comments]
 */
 class Ambix_converterAudioProcessorEditor  : public AudioProcessorEditor,
-                                            public ComboBoxListener,
-                                            public ButtonListener,
+                                            public ComboBox::Listener,
+                                            public Button::Listener,
                                             public ChangeListener
 {
 public:
@@ -89,6 +89,7 @@ private:
     ScopedPointer<ToggleButton> tgl_in_2d;
     ScopedPointer<ToggleButton> tgl_out_2d;
     
+    LookAndFeel_V3 MyLookAndFeel;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Ambix_converterAudioProcessorEditor)
 };

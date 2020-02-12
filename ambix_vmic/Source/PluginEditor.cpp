@@ -25,8 +25,8 @@
 Ambix_vmicAudioProcessorEditor::Ambix_vmicAudioProcessorEditor (Ambix_vmicAudioProcessor* ownerFilter)
     : AudioProcessorEditor (ownerFilter)
 {
-    //[Constructor_pre] You can add your own custom stuff here..
-    //[/Constructor_pre]
+    LookAndFeel::setDefaultLookAndFeel(&MyLookAndFeel);
+
     tooltipWindow.setMillisecondsBeforeTipAppears (700); // tooltip delay
     
     addAndMakeVisible (lbl_gd = new Label ("new label",

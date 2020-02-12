@@ -65,6 +65,8 @@ Ambix_mirrorAudioProcessorEditor::Ambix_mirrorAudioProcessorEditor (Ambix_mirror
     lbl_circular (nullptr),
     cachedImage_coordinate_system_png (nullptr)
 {
+    LookAndFeel::setDefaultLookAndFeel(&MyLookAndFeel);
+
     tooltipWindow.setMillisecondsBeforeTipAppears (700); // tooltip delay
     
     addAndMakeVisible (box_presets = new ComboBox ("new combo box"));

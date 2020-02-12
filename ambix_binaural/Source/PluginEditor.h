@@ -37,11 +37,11 @@
                                                                     //[/Comments]
 */
 class Ambix_binauralAudioProcessorEditor  : public AudioProcessorEditor,
-                                            public ButtonListener,
+                                            public Button::Listener,
                                             public Timer,
                                             public ChangeListener,
-                                            public ComboBoxListener,
-                                            public SliderListener
+                                            public ComboBox::Listener,
+                                            public Slider::Listener
 {
 public:
     //==============================================================================
@@ -111,6 +111,8 @@ private:
     OwnedArray<MyMeterScale> _scales;
     
     int _width;
+    
+    LookAndFeel_V3 MyLookAndFeel;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Ambix_binauralAudioProcessorEditor)
 };
