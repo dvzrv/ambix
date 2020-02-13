@@ -224,6 +224,14 @@ IF(APPLE)
 
 ENDIF(APPLE)
 
+IF(WIN32)
+
+	ADD_CUSTOM_COMMAND(
+		TARGET ${SUBPROJECT_NAME} POST_BUILD 
+		COMMAND ${CMAKE_COMMAND} 
+		ARGS -E copy ${FILEPATH} ${BIN_DIR}/_bin/standalone/${SUBPROJECT_NAME}.exe
+	)
+ENDIF(WIN32)
 
 ################################################
 # change to static linking for ms visual c++
